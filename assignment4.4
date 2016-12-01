@@ -1,0 +1,52 @@
+# acad-assignment4.4
+/*Write a program to demonstrate Constructor chaining in Java.
+Access super class constructor through child class and display the relevant statements of both*/
+
+package assignment4;
+
+public class ConstructorChaining {
+	
+	public static void main(String[] args) {
+		
+		ConstructorChild child = new ConstructorChild("Parameter");	
+		
+	}
+
+}
+
+class ConstructorParent{
+	
+	protected String constructor;
+
+	public ConstructorParent()
+	{
+		this("");
+		System.out.println("no parameter parent constructor");
+	}
+
+	public ConstructorParent(String constructor) {
+		this.constructor = constructor;
+		System.out.println("one parameter parent constructor");
+		
+	}
+}
+
+class ConstructorChild extends ConstructorParent{
+	
+	public ConstructorChild()
+	{
+		//super();
+		System.out.println("no parameter child constructor");
+	}
+	
+	public ConstructorChild(String constructor)
+	{
+		super.constructor = constructor;  //calling one argument constructor of super class
+		System.out.println("one parameter child constructor");
+	}
+}
+
+output:
+one parameter parent constructor
+no parameter parent constructor
+one parameter child constructor
